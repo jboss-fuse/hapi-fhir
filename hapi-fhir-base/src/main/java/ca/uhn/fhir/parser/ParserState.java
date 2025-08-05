@@ -1287,8 +1287,10 @@ class ParserState<T> {
 					try {
 						myInstance.setValueAsString(theValue);
 					} catch (DataFormatException e) {
+						ourLog.info("Exception for wrong data format");
 						myErrorHandler.invalidValue(null, theValue, e.getMessage());
 					} catch (IllegalArgumentException e) {
+						ourLog.info("Exception for illegal argument");
 						myErrorHandler.invalidValue(null, theValue, e.getMessage());
 					}
 				}

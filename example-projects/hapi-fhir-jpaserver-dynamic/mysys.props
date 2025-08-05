@@ -1,0 +1,4 @@
+STU_VERSION=fhir_version
+HIBERNATE_CREATE=true
+ENV=local
+DB_URL=jdbc:derby:directory:target/jpaserver_derby_files;create=true

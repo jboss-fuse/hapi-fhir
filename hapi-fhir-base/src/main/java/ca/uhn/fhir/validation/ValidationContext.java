@@ -38,6 +38,7 @@ public class ValidationContext<T> extends BaseValidationContext<T> implements IV
 	private final T myResource;
 	private String myResourceAsString;
 	private final EncodingEnum myResourceAsStringEncoding;
+	private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(ValidationContext.class);
 
 	private ValidationContext(FhirContext theContext, T theResource, IEncoder theEncoder) {
 		this(theContext, theResource, theEncoder, new ArrayList<SingleValidationMessage>());
@@ -102,6 +103,7 @@ public class ValidationContext<T> extends BaseValidationContext<T> implements IV
 
 			@Override
 			public IBaseResource getResource() {
+				ourLog.info("myParsed is null: {}", (myParsed == null));
 				if (myParsed == null) {
 					IParser parser = getResourceAsStringEncoding().newParser(getFhirContext());
 					LenientErrorHandler errorHandler = new LenientErrorHandler();

@@ -231,20 +231,27 @@
 		<finalName>hapi-fhir-jpaserver-dynamic</finalName>
 
 		<!-- The following is not required for the application to build, but allows you to test it by issuing "mvn jetty:run" from the command line. -->
-		<!-- <pluginManagement>
+		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
 					<configuration>
 						<webApp>
-							<contextPath>/hapi-fhir-jpaserver-dynamic</contextPath>
+							<contextPath>/</contextPath>
 							<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
 						</webApp>
+						<systemPropertiesFile>${project.basedir}/mysys.props</systemPropertiesFile>
+						<loginServices>
+							<loginService implementation="org.eclipse.jetty.security.HashLoginService">
+								<name>Test Realm</name>
+								<config>src/etc/realm.properties</config>
+							</loginService>
+						</loginServices>
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement> -->
+		</pluginManagement>
 
 		<plugins>
 			<!-- Tell Maven which Java source version you want to use -->

@@ -82,7 +82,9 @@ public class LenientErrorHandler implements IParserErrorHandler {
 
 	@Override
 	public void invalidValue(IParseLocation theLocation, String theValue, String theError) {
+		ourLog.info("is error thrown on invalid value: {}", myErrorOnInvalidValue);
 		if (isBlank(theValue) || myErrorOnInvalidValue == false) {
+			ourLog.info("invalidValue warning case");
 			if (myLogErrors) {
 				ourLog.warn("Invalid attribute value \"{}\": {}", theValue, theError);
 			}

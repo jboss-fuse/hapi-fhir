@@ -1,0 +1,23 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee ./xsd/web-app_3_0.xsd">
+
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/fhir/metadata</url-pattern>      <!--Exclude metadata only -->
+		</web-resource-collection>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/*</url-pattern>      <!--The url that should be protected -->
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>       <!--The required roles for accessing the url -->
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>     <!-- Use http basic authentication -->
+		<realm-name>Test Realm</realm-name>  <!-- Users are defined in this realm -->
+	</login-config>
+
+</web-app>

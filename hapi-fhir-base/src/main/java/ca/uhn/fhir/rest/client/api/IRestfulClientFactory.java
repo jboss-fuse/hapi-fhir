@@ -41,7 +41,7 @@ public interface IRestfulClientFactory {
 	/**
 	 * Default value for {@link #getServerValidationModeEnum()}
 	 */
-	public static final ServerValidationModeEnum DEFAULT_SERVER_VALIDATION_MODE = ServerValidationModeEnum.ONCE;
+	public static final ServerValidationModeEnum DEFAULT_SERVER_VALIDATION_MODE = ServerValidationModeEnum.NEVER;
 
 	/**
 	 * Default value for {@link #getSocketTimeout()}

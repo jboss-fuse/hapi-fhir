@@ -1673,6 +1673,7 @@ public abstract class BaseHapiFhirDao<T extends IBaseResource> implements IDao, 
 		R retVal;
 		if (resourceEncoding != ResourceEncodingEnum.DEL) {
 			IParser parser = resourceEncoding.newParser(getContext(theEntity.getFhirVersion()));
+			ourLog.info("fhir version for parser: {}", theEntity.getFhirVersion().name());
 			parser.setParserErrorHandler(new LenientErrorHandler(false).setErrorOnInvalidValue(false));
 
 			try {

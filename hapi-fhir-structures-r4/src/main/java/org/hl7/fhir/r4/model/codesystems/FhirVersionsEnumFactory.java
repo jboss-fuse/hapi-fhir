@@ -36,7 +36,10 @@ import org.hl7.fhir.r4.model.EnumFactory;
 
 public class FhirVersionsEnumFactory implements EnumFactory<FhirVersions> {
 
+  private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(FhirVersionsEnumFactory.class);
+
   public FhirVersions fromCode(String codeString) throws IllegalArgumentException {
+    ourLog.info("codeString received: {}", codeString);
     if (codeString == null || "".equals(codeString))
       return null;
     if ("0.01".equals(codeString))
@@ -79,6 +82,7 @@ public class FhirVersionsEnumFactory implements EnumFactory<FhirVersions> {
   }
 
   public String toCode(FhirVersions code) {
+    ourLog.info("Code exported: {}", code);
     if (code == FhirVersions._0_01)
       return "0.01";
     if (code == FhirVersions._0_05)
